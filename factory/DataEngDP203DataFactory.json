@@ -1,0 +1,9 @@
+{
+	"name": "DataEngDP203DataFactory",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0a545050-7dbb-41b6-9364-8448937a5925",
+		"tenantId": "0fcfede9-7dce-4c9e-bda0-7fea19603744"
+	}
+}
