@@ -1,0 +1,96 @@
+{
+	"name": "SourceDataset_jph",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SrcBlobStorageDP203",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "test",
+				"container": "foradfpipeline"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "sku",
+				"type": "String"
+			},
+			{
+				"name": "stock",
+				"type": "String"
+			},
+			{
+				"name": "unit_size",
+				"type": "String"
+			},
+			{
+				"name": "unit_size_type",
+				"type": "String"
+			},
+			{
+				"name": "unit_quantity",
+				"type": "String"
+			},
+			{
+				"name": "bundle_size",
+				"type": "String"
+			},
+			{
+				"name": "bundle_price",
+				"type": "String"
+			},
+			{
+				"name": "bundle_unit_price",
+				"type": "String"
+			},
+			{
+				"name": "brand",
+				"type": "String"
+			},
+			{
+				"name": "price",
+				"type": "String"
+			},
+			{
+				"name": "unit_price",
+				"type": "String"
+			},
+			{
+				"name": "full_promo_info",
+				"type": "String"
+			},
+			{
+				"name": "url",
+				"type": "String"
+			},
+			{
+				"name": "category",
+				"type": "String"
+			},
+			{
+				"name": "timestamp",
+				"type": "String"
+			}
+		]
+	}
+}
