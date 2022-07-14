@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_jph",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DestBlobStorageDP203",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "adfdestinationblob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
