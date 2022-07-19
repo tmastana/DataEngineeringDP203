@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy_jph",
+				"description": "This is the first copy activity",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
