@@ -273,9 +273,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"wildcardFolderPath": "*",
-							"wildcardFileName": "*",
+							"fileListPath": "adfdestinationblob/amazon.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
