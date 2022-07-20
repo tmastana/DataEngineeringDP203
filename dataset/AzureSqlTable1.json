@@ -1,0 +1,89 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureADFsqlDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "sku",
+				"type": "varchar"
+			},
+			{
+				"name": "stock",
+				"type": "varchar"
+			},
+			{
+				"name": "unit_size",
+				"type": "varchar"
+			},
+			{
+				"name": "unit_size_type",
+				"type": "varchar"
+			},
+			{
+				"name": "unit_quantity",
+				"type": "varchar"
+			},
+			{
+				"name": "bundle_size",
+				"type": "varchar"
+			},
+			{
+				"name": "bundle_price",
+				"type": "varchar"
+			},
+			{
+				"name": "bundle_unit_price",
+				"type": "varchar"
+			},
+			{
+				"name": "brand",
+				"type": "varchar"
+			},
+			{
+				"name": "price",
+				"type": "varchar"
+			},
+			{
+				"name": "unit_price",
+				"type": "varchar"
+			},
+			{
+				"name": "full_promo_info",
+				"type": "varchar"
+			},
+			{
+				"name": "url",
+				"type": "varchar"
+			},
+			{
+				"name": "category",
+				"type": "varchar"
+			},
+			{
+				"name": "timestamp",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ItemInfo"
+		}
+	}
+}
