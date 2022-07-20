@@ -10,6 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "ItemInfo",
+				"folderPath": "ItemInfoFolder",
 				"container": "adfdestinationblob"
 			},
 			"columnDelimiter": ",",
