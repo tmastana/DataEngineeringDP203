@@ -4,7 +4,6 @@
 		"activities": [
 			{
 				"name": "Copy_jph",
-				"description": "This is the first copy activity",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -66,6 +65,8 @@
 				]
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2022-07-14T11:17:05Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
