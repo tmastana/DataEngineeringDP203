@@ -273,7 +273,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"fileListPath": "adfdestinationblob/amazon.csv",
+							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
