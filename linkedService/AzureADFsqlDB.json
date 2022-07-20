@@ -1,0 +1,18 @@
+{
+	"name": "AzureADFsqlDB",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dp203adftestsvr.database.windows.net;Initial Catalog=DP203ADFtestDB;User ID=dp203admin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "DP203ADFKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dp203adftestsvrpwd"
+			}
+		}
+	}
+}
