@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_jph",
+				"name": "Copy_CSV",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -254,7 +254,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy_jph",
+						"activity": "Copy_CSV",
 						"dependencyConditions": [
 							"Succeeded"
 						]
