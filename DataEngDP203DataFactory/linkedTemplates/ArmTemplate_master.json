@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SrcBlobStorageDP203'"
 		},
+		"AzureADFsqlDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureADFsqlDB'"
+		},
+		"DP203ADFKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://azdp203kv.vault.azure.net/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +55,12 @@
 					},
 					"SrcBlobStorageDP203_connectionString": {
 						"value": "[parameters('SrcBlobStorageDP203_connectionString')]"
+					},
+					"AzureADFsqlDB_connectionString": {
+						"value": "[parameters('AzureADFsqlDB_connectionString')]"
+					},
+					"DP203ADFKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('DP203ADFKeyVault_properties_typeProperties_baseUrl')]"
 					}
 				}
 			},

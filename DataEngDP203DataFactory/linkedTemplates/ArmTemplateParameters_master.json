@@ -11,6 +11,12 @@
 		"SrcBlobStorageDP203_connectionString": {
 			"value": ""
 		},
+		"AzureADFsqlDB_connectionString": {
+			"value": ""
+		},
+		"DP203ADFKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://azdp203kv.vault.azure.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},
