@@ -1,0 +1,10 @@
+{
+	"name": "DP203ADFKeyVault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://azdp203kv.vault.azure.net/"
+		}
+	}
+}
