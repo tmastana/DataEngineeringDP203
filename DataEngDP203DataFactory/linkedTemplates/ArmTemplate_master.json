@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "DataEngDP203DataFactory"
 		},
+		"AzureADFsqlDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureADFsqlDB'"
+		},
 		"DestBlobStorageDP203_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'DestBlobStorageDP203'"
@@ -14,10 +18,6 @@
 		"SrcBlobStorageDP203_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SrcBlobStorageDP203'"
-		},
-		"AzureADFsqlDB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureADFsqlDB'"
 		},
 		"DP203ADFKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",

@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "DataEngDP203DataFactory"
 		},
+		"AzureADFsqlDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureADFsqlDB'"
+		},
 		"DestBlobStorageDP203_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'DestBlobStorageDP203'"
@@ -14,10 +18,6 @@
 		"SrcBlobStorageDP203_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SrcBlobStorageDP203'"
-		},
-		"AzureADFsqlDB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureADFsqlDB'"
 		},
 		"DP203ADFKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -533,12 +533,106 @@
 					"cancelAfter": {}
 				},
 				"annotations": [],
-				"lastPublishTime": "2022-07-14T11:17:05Z"
+				"lastPublishTime": "2022-07-21T05:54:59Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_jph')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_jph')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureADFsqlDB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "country",
+						"type": "varchar"
+					},
+					{
+						"name": "city",
+						"type": "varchar"
+					},
+					{
+						"name": "name",
+						"type": "varchar"
+					},
+					{
+						"name": "sku",
+						"type": "varchar"
+					},
+					{
+						"name": "stock",
+						"type": "varchar"
+					},
+					{
+						"name": "unit_size",
+						"type": "varchar"
+					},
+					{
+						"name": "unit_size_type",
+						"type": "varchar"
+					},
+					{
+						"name": "unit_quantity",
+						"type": "varchar"
+					},
+					{
+						"name": "bundle_size",
+						"type": "varchar"
+					},
+					{
+						"name": "bundle_price",
+						"type": "varchar"
+					},
+					{
+						"name": "bundle_unit_price",
+						"type": "varchar"
+					},
+					{
+						"name": "brand",
+						"type": "varchar"
+					},
+					{
+						"name": "price",
+						"type": "varchar"
+					},
+					{
+						"name": "unit_price",
+						"type": "varchar"
+					},
+					{
+						"name": "full_promo_info",
+						"type": "varchar"
+					},
+					{
+						"name": "url",
+						"type": "varchar"
+					},
+					{
+						"name": "category",
+						"type": "varchar"
+					},
+					{
+						"name": "timestamp",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "ItemInfo"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureADFsqlDB')]"
 			]
 		},
 		{
@@ -726,6 +820,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureADFsqlDB')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureADFsqlDB_connectionString')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "DP203ADFKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "dp203adftestsvrpwd"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/DP203ADFKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DP203ADFKeyVault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('DP203ADFKeyVault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DestBlobStorageDP203')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -750,136 +880,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DP203ADFKeyVault')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('DP203ADFKeyVault_properties_typeProperties_baseUrl')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureADFsqlDB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureADFsqlDB_connectionString')]",
-					"password": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "DP203ADFKeyVault",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "dp203adftestsvrpwd"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/DP203ADFKeyVault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureADFsqlDB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "country",
-						"type": "varchar"
-					},
-					{
-						"name": "city",
-						"type": "varchar"
-					},
-					{
-						"name": "name",
-						"type": "varchar"
-					},
-					{
-						"name": "sku",
-						"type": "varchar"
-					},
-					{
-						"name": "stock",
-						"type": "varchar"
-					},
-					{
-						"name": "unit_size",
-						"type": "varchar"
-					},
-					{
-						"name": "unit_size_type",
-						"type": "varchar"
-					},
-					{
-						"name": "unit_quantity",
-						"type": "varchar"
-					},
-					{
-						"name": "bundle_size",
-						"type": "varchar"
-					},
-					{
-						"name": "bundle_price",
-						"type": "varchar"
-					},
-					{
-						"name": "bundle_unit_price",
-						"type": "varchar"
-					},
-					{
-						"name": "brand",
-						"type": "varchar"
-					},
-					{
-						"name": "price",
-						"type": "varchar"
-					},
-					{
-						"name": "unit_price",
-						"type": "varchar"
-					},
-					{
-						"name": "full_promo_info",
-						"type": "varchar"
-					},
-					{
-						"name": "url",
-						"type": "varchar"
-					},
-					{
-						"name": "category",
-						"type": "varchar"
-					},
-					{
-						"name": "timestamp",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "ItemInfo"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureADFsqlDB')]"
-			]
 		}
 	]
 }
